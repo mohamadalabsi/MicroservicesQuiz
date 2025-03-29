@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class QuizDto {
+//          Data Transfer Object
     String categoryName;
     Integer numQuestions;
     String title;
