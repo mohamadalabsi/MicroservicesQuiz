@@ -14,6 +14,7 @@ public class Quiz {
     private Integer id;
     private String title;
 
+//    if we have number or specific type we use ElementCollection , but if we have entity type or different table we use @ManyToMany
     @ElementCollection
     private List<Integer> questionIds;
 
