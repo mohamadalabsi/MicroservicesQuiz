@@ -28,9 +28,9 @@ public class QuizService {
 //        her i want to call the generate url from question service , we should use rest template from spring and the url http:...../question/generate to send a request
 //         but with the local host or the ip address or  domain name it is not the best solution , that's why we use other 2 different services (feign , service discovery(eureka) ) instead of rest template
 //        and both microServices will be client
-//        eureka server should be in different project  (Service Registry ) to register the other 2 microservices as eureka server
+//        eureka server should be in different project  (Service Registry ) ,  to register the other 2 microservices as eureka client we should enable the dependencies
 //        now we use feign instead of rest template to send request
-//        so now use feign for knowing which url to hit , and we use eureka to discover the services
+//        so now use feign for knowing which url to hit and to get the data from the other service , and we use eureka to discover the services and how to discover each other
 
 
         List<Integer> questions = quizInterface.getQuestionsForQuiz(category, numQ).getBody(); // get body because in the methode we return ResponseEntity so we want the body
@@ -42,6 +42,8 @@ public class QuizService {
         return new ResponseEntity<>("Success", HttpStatus.CREATED);
 
     }
+
+//     we just have the Ids of the quiz's and the question and titles
 
     public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(Integer id) {
         Quiz quiz = quizRepo.findById(id).get();
