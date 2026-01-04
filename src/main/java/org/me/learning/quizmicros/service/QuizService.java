@@ -18,9 +18,12 @@ public class QuizService {
     @Autowired
     QuizRepo quizRepo;
 
-    @Autowired
-    QuizInterface quizInterface;
 
+    QuizInterface quizInterface;
+    @Autowired
+    public QuizService(QuizInterface quizInterface) {
+        this.quizInterface = quizInterface;
+    }
 
     public ResponseEntity<String> createQuiz(String category, int numQ, String title) {
 //  !       this will interact with the question Service to get the question as an admin
