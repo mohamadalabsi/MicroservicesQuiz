@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient("QUESTIONMICROS")
+@FeignClient("QUESTIONMICROS") // here we mention which service (client)
 public interface QuizInterface {
+//    now feign used after registering all services with eureka server to allow it to search for
+//    other services
 //     we have to declare the methods not define
 
 //     we put question/generate and look back to QUESTIONMICROS it is different but work the same
