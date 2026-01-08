@@ -15,8 +15,13 @@ import java.util.List;
 @FeignClient("QUESTIONMICROS") // here we mention which service (client)
 public interface QuizInterface {
 //    now feign used after registering all services with eureka server to allow it to search for
-//    other services
+//    other services and call them
 //     we have to declare the methods not define
+
+
+//!    feign client also work as load balancer during communicating and searching for the
+//!    services we need so if an instance is busy from other service it will use another
+//! so in a way it is internal load balancer
 
 //     we put question/generate and look back to QUESTIONMICROS it is different but work the same
     @GetMapping("question/generate")
